@@ -7,31 +7,37 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    class Movie
+    public class Movie
     {
         [Key]
-        public int ID { get; private set; }
+        public int ID { get; set; }
+
         [Required]
         public string Name { get; set; }
+
         [Required]
         public string Description { get; set; }
+
         [Range(1900, 2022, ErrorMessage = "Year must be between {0} and {1}.")]
         public int ReleaseYear { get; set; }
         
-        public int? Length { get; set; }
-        public IEnumerable<User> users { get; set; }
+        public int Length { get; set; }
+        public IEnumerable<User> Users { get; set; }
 
-        public IEnumerable<Genre> genres { get; set; }
+        [Required]
+        public IEnumerable<Genre> Genres { get; set; }
 
         private Movie()
         {
 
         }
-        public Movie(string name, int releaseYear, string description)
+        public Movie(string name, int releaseYear, string description, int lenght, IEnumerable<Genre> genres)
         {
             Name = name;
             ReleaseYear = releaseYear;
             Description = description;
+            Length = lenght;
+            Genres = genres;
         }
     }
 }

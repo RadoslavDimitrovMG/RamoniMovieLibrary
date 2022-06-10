@@ -7,25 +7,32 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    class User
+    public class User
     {
         [Key]
-        public int ID { get; private set; }
-        [Required]
+        public int ID { get; set; }
+
+        [Required, MaxLength(64)]
         public string Name { get; set; }
+
         [Range(1, 100, ErrorMessage = "Age must be between {0} and {1}.")]
         public int Age { get; set; }
 
-        public IEnumerable<Movie> movies { get; set; }
+        [Required, MaxLength(64)]
+        public string Country { get; set; }
+
+        public IEnumerable<Movie> Movies { get; set; }
 
         private User()
         {
 
         }
 
-        public User(string name)
+        public User(string name, int age, string country)
         {
             Name = name;
+            Age = age;
+            Country = country;
         }
     }
 }

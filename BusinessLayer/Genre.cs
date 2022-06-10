@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    class Genre
+    public class Genre
     {
         [Key]
-        public int ID { get; private set; }
+        public int ID { get; set; }
+
         [Required]
         public string Name { get; set; }
 
-        public IEnumerable<Movie> movies { get; set; }
+        public IEnumerable<Movie> Movies { get; set; }
 
         private Genre()
         {
