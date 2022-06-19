@@ -27,5 +27,11 @@ namespace PresentationLayer
         {
             this.Close();
         }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            UserForm user = new UserForm();
+            user.ShowDialog();
+        }
     }
 }

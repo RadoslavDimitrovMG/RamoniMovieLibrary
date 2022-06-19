@@ -132,8 +132,8 @@ namespace PresentationLayer
         {
             dataGridViewUser.Rows[selectedRowIndex].Cells[0].Value = selectedUser.ID;
             dataGridViewUser.Rows[selectedRowIndex].Cells[1].Value = selectedUser.Name;
-            dataGridViewUser.Rows[selectedRowIndex].Cells[1].Value = selectedUser.Age;
-            dataGridViewUser.Rows[selectedRowIndex].Cells[1].Value = selectedUser.Country;
+            dataGridViewUser.Rows[selectedRowIndex].Cells[2].Value = selectedUser.Age;
+            dataGridViewUser.Rows[selectedRowIndex].Cells[3].Value = selectedUser.Country;
         }
 
         private void DeleteRowRefresh()

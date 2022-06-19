@@ -22,7 +22,7 @@ namespace DataLayer
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL(@"server=127.0.0.1;uid=root;pwd=hophopapa;database=MovieLibraryDb");
+                optionsBuilder.UseMySQL(@"server=127.0.0.1;uid=root;pwd=2922rady;database=movielibrarydb");
             }
         }
 
