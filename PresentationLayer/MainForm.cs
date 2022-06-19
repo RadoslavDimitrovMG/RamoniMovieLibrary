@@ -27,5 +27,11 @@ namespace PresentationLayer
         {
             this.Close();
         }
+
+        private void btnMovie_Click(object sender, EventArgs e)
+        {
+            MovieForm movie = new MovieForm();
+            movie.ShowDialog();
+        }
     }
 }
