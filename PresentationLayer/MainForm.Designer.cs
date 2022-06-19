@@ -38,9 +38,10 @@ namespace PresentationLayer
             // 
             // btnGenre
             // 
-            this.btnGenre.Location = new System.Drawing.Point(152, 172);
+            this.btnGenre.Location = new System.Drawing.Point(133, 129);
+            this.btnGenre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGenre.Name = "btnGenre";
-            this.btnGenre.Size = new System.Drawing.Size(94, 29);
+            this.btnGenre.Size = new System.Drawing.Size(82, 22);
             this.btnGenre.TabIndex = 1;
             this.btnGenre.Text = "Genre";
             this.btnGenre.UseVisualStyleBackColor = true;
@@ -48,9 +49,10 @@ namespace PresentationLayer
             // 
             // btnMovie
             // 
-            this.btnMovie.Location = new System.Drawing.Point(351, 172);
+            this.btnMovie.Location = new System.Drawing.Point(307, 129);
+            this.btnMovie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMovie.Name = "btnMovie";
-            this.btnMovie.Size = new System.Drawing.Size(94, 29);
+            this.btnMovie.Size = new System.Drawing.Size(82, 22);
             this.btnMovie.TabIndex = 2;
             this.btnMovie.Text = "Movie";
             this.btnMovie.UseVisualStyleBackColor = true;
@@ -58,18 +60,21 @@ namespace PresentationLayer
             // 
             // btnUser
             // 
-            this.btnUser.Location = new System.Drawing.Point(561, 172);
+            this.btnUser.Location = new System.Drawing.Point(491, 129);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(94, 29);
+            this.btnUser.Size = new System.Drawing.Size(82, 22);
             this.btnUser.TabIndex = 3;
             this.btnUser.Text = "User";
             this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(647, 374);
+            this.btnExit.Location = new System.Drawing.Point(566, 280);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(94, 29);
+            this.btnExit.Size = new System.Drawing.Size(82, 22);
             this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -77,15 +82,16 @@ namespace PresentationLayer
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnUser);
             this.Controls.Add(this.btnMovie);
             this.Controls.Add(this.btnGenre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Text = "Home";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
