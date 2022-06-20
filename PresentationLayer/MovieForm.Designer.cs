@@ -29,6 +29,7 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MovieForm));
             this.txtName = new System.Windows.Forms.TextBox();
             this.numYear = new System.Windows.Forms.NumericUpDown();
             this.txtDescr = new System.Windows.Forms.RichTextBox();
@@ -45,6 +46,7 @@ namespace PresentationLayer
             this.lblGenre = new System.Windows.Forms.Label();
             this.dataGridViewMovie = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMovie)).BeginInit();
@@ -214,11 +216,22 @@ namespace PresentationLayer
             this.label1.TabIndex = 20;
             this.label1.Text = "Name";
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(221, 409);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(61, 29);
+            this.btnClear.TabIndex = 21;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // MovieForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewMovie);
             this.Controls.Add(this.lblGenre);
@@ -235,6 +248,7 @@ namespace PresentationLayer
             this.Controls.Add(this.txtDescr);
             this.Controls.Add(this.numYear);
             this.Controls.Add(this.txtName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MovieForm";
             this.Text = "MovieForm";
             this.Load += new System.EventHandler(this.MovieForm_Load);
@@ -264,5 +278,6 @@ namespace PresentationLayer
         private System.Windows.Forms.Label lblGenre;
         private System.Windows.Forms.DataGridView dataGridViewMovie;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnClear;
     }
 }

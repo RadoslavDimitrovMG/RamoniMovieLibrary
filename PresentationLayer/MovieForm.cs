@@ -96,7 +96,7 @@ namespace PresentationLayer
                 int year = Convert.ToInt32(dataGridViewMovie.Rows[e.RowIndex].Cells[2].Value);
                 int length = Convert.ToInt32(dataGridViewMovie.Rows[e.RowIndex].Cells[3].Value);
 
-                selectedMovie = movies.First(m => m.ID == id);
+                selectedMovie = movies.Find(m => m.ID == id);
 
                 txtName.Text = name;
                 txtDescr.Text = descr;
@@ -251,6 +251,11 @@ namespace PresentationLayer
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
     }
 }

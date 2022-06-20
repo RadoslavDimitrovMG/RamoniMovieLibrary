@@ -49,7 +49,10 @@ namespace PresentationLayer
         {
             txtName.Text = string.Empty;
             txtCountry.Text = string.Empty;
+            numAge.Value = numAge.Minimum;
+
             selectedUser = null;
+            selectedMovies.Clear();
             selectedRowIndex = -1;
         }
       
@@ -76,6 +79,7 @@ namespace PresentationLayer
 
                     CreateRowRefresh(user);
                     ClearData();
+                    dataGridViewUser.Refresh();
                 }
                 else
                 {
@@ -193,7 +197,7 @@ namespace PresentationLayer
                 int age  = (int)dataGridViewUser.Rows[e.RowIndex].Cells[2].Value;
                 string country = dataGridViewUser.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-                selectedUser = users.First(u => u.ID == id);
+                selectedUser = users.Find(u => u.ID == id);
 
                 txtName.Text = name;
                 numAge.Value = age;
@@ -208,11 +212,6 @@ namespace PresentationLayer
 
             listBox1.DisplayMember = "Name";
             listBox1.ValueMember = "ID";
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnAddMovies_Click(object sender, EventArgs e)
@@ -259,5 +258,9 @@ namespace PresentationLayer
             }
         }
 
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearData();
+        }
     }
 }
