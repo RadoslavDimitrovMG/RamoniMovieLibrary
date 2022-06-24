@@ -41,6 +41,7 @@ namespace PresentationLayer
         private void ClearData()
         {
             txtName.Text = string.Empty;
+            txtCountry.Text = string.Empty;
 
             selectedUser = null;
             selectedRowIndex = -1;
@@ -72,9 +73,7 @@ namespace PresentationLayer
                 }
                 else
                 {
-                    MessageBox.Show("Name is required!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show("Age is required!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    MessageBox.Show("Country is required!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Name, age and country are required!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
