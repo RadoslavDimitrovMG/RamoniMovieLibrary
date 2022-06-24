@@ -16,22 +16,24 @@ namespace PresentationLayer
         {
             InitializeComponent();
         }
-
         private void btnGenre_Click(object sender, EventArgs e)
         {
             GenreForm genre = new GenreForm();
             genre.ShowDialog();
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
+        private void btnMovie_Click(object sender, EventArgs e)
         {
-            this.Close();
+            MovieForm movie = new MovieForm();
+            movie.ShowDialog();
         }
-
         private void btnUser_Click(object sender, EventArgs e)
         {
             UserForm user = new UserForm();
             user.ShowDialog();
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

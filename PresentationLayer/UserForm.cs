@@ -19,14 +19,21 @@ namespace PresentationLayer
         private User selectedUser;
         private List<User> users;
         int selectedRowIndex = -1;
+
+        private MovieContext movieContext;
+        //private Movie selectedMovie;
+        private List<Movie> selectedMovies;
         public UserForm()
         {
             InitializeComponent();
             dbContext = new MovieLibraryContext();
             userContext = new UserContext(dbContext);
+            movieContext = new MovieContext(dbContext);
+            selectedMovies = new List<Movie>();
 
             LoadHeaderRow();
             LoadUsers();
+            BindListBox();
         }
         private bool ValidateData()
         {
@@ -42,8 +49,10 @@ namespace PresentationLayer
         {
             txtName.Text = string.Empty;
             txtCountry.Text = string.Empty;
+            numAge.Value = numAge.Minimum;
 
             selectedUser = null;
+            selectedMovies.Clear();
             selectedRowIndex = -1;
         }
       
@@ -70,6 +79,7 @@ namespace PresentationLayer
 
                     CreateRowRefresh(user);
                     ClearData();
+                    dataGridViewUser.Refresh();
                 }
                 else
                 {
@@ -86,7 +96,8 @@ namespace PresentationLayer
             dataGridViewUser.Columns.Add("id", "ID");
             dataGridViewUser.Columns.Add("name", "Name");
             dataGridViewUser.Columns.Add("age", "Age");
-            dataGridViewUser.Columns.Add("country", "Country");            
+            dataGridViewUser.Columns.Add("country", "Country");
+            dataGridViewUser.Columns.Add("movies", "Favourite Movies");
         }
 
         private void LoadUsers()
@@ -102,10 +113,10 @@ namespace PresentationLayer
                 row.Cells[2].Value = item.Age;
                 row.Cells[3].Value = item.Country;
 
-                /*if (item.Movies != null)
+                if (item.Movies != null)
                 {
-                    row.Cells[2].Value = string.Join(", ", item.Movies.Select(c => c.Name));
-                }*/
+                    row.Cells[4].Value = string.Join(", ", item.Movies.Select(m => m.Name));
+                }
 
                 dataGridViewUser.Rows.Add(row);
             }
@@ -118,13 +129,9 @@ namespace PresentationLayer
             row.Cells[1].Value = item.Name;
             row.Cells[2].Value = item.Age;
             row.Cells[3].Value = item.Country;
-
-            /*if (item.Movies != null)
-            {
-                row.Cells[2].Value = string.Join(", ", item.Movies);
-            }*/
-
             dataGridViewUser.Rows.Add(row);
+
+            users.Add(item);
         }
 
         private void UpdateRowRefresh()
@@ -133,6 +140,7 @@ namespace PresentationLayer
             dataGridViewUser.Rows[selectedRowIndex].Cells[1].Value = selectedUser.Name;
             dataGridViewUser.Rows[selectedRowIndex].Cells[2].Value = selectedUser.Age;
             dataGridViewUser.Rows[selectedRowIndex].Cells[3].Value = selectedUser.Country;
+            dataGridViewUser.Rows[selectedRowIndex].Cells[4].Value = string.Join(", ", selectedUser.Movies.Select(m => m.Name));
         }
 
         private void DeleteRowRefresh()
@@ -189,7 +197,7 @@ namespace PresentationLayer
                 int age  = (int)dataGridViewUser.Rows[e.RowIndex].Cells[2].Value;
                 string country = dataGridViewUser.Rows[e.RowIndex].Cells[3].Value.ToString();
 
-                selectedUser = users.First(u => u.ID == id);
+                selectedUser = users.Find(u => u.ID == id);
 
                 txtName.Text = name;
                 numAge.Value = age;
@@ -197,6 +205,62 @@ namespace PresentationLayer
 
                 selectedRowIndex = e.RowIndex;
             }
+        }
+        private void BindListBox()
+        {
+            listBox1.DataSource = movieContext.ReadAll();
+
+            listBox1.DisplayMember = "Name";
+            listBox1.ValueMember = "ID";
+        }
+
+        private void btnAddMovies_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (listBox1.SelectedValue != null)
+                {
+                    foreach (Movie m in listBox1.SelectedItems)
+                    {
+                        selectedMovies.Add(m);
+                    }
+                }
+                if (selectedMovies.Count > 0 && selectedUser != null)
+                {
+                    for(int i = 0; i < selectedMovies.Count; i++)
+                    {
+                        if (!((HashSet<Movie>)selectedUser.Movies).Contains(selectedMovies[i]))
+                        {
+                            ((HashSet<Movie>)selectedUser.Movies).Add(selectedMovies[i]);
+
+                            userContext.Update(selectedUser);
+
+                            MessageBox.Show(string.Format("{0} added successfully!", selectedMovies[i].Name),
+                            "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            UpdateRowRefresh();
+                        }
+                        else
+                        {
+                            MessageBox.Show(selectedMovies[i].Name + " movie is already added to favourites!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    selectedMovies.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("You must choose user and movie/movies!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
     }
 }

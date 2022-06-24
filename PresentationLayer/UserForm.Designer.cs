@@ -29,6 +29,7 @@ namespace PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.txtCountry = new System.Windows.Forms.TextBox();
             this.numAge = new System.Windows.Forms.NumericUpDown();
             this.dataGridViewUser = new System.Windows.Forms.DataGridView();
@@ -40,39 +41,48 @@ namespace PresentationLayer
             this.label3 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lblMovies = new System.Windows.Forms.Label();
+            this.btnAddMovies = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numAge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(68, 210);
+            this.txtCountry.Location = new System.Drawing.Point(78, 208);
+            this.txtCountry.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(100, 23);
+            this.txtCountry.Size = new System.Drawing.Size(193, 27);
             this.txtCountry.TabIndex = 1;
             // 
             // numAge
             // 
-            this.numAge.Location = new System.Drawing.Point(68, 158);
+            this.numAge.Location = new System.Drawing.Point(78, 137);
+            this.numAge.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numAge.Name = "numAge";
-            this.numAge.Size = new System.Drawing.Size(120, 23);
+            this.numAge.Size = new System.Drawing.Size(86, 27);
             this.numAge.TabIndex = 2;
             // 
             // dataGridViewUser
             // 
             this.dataGridViewUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUser.Location = new System.Drawing.Point(448, 92);
+            this.dataGridViewUser.Location = new System.Drawing.Point(380, 45);
+            this.dataGridViewUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewUser.Name = "dataGridViewUser";
+            this.dataGridViewUser.RowHeadersWidth = 51;
             this.dataGridViewUser.RowTemplate.Height = 25;
-            this.dataGridViewUser.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewUser.Size = new System.Drawing.Size(718, 301);
             this.dataGridViewUser.TabIndex = 3;
             this.dataGridViewUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUser_CellContentClick);
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(68, 307);
+            this.btnCreate.Location = new System.Drawing.Point(380, 374);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 23);
+            this.btnCreate.Size = new System.Drawing.Size(86, 31);
             this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -80,9 +90,10 @@ namespace PresentationLayer
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(209, 306);
+            this.btnUpdate.Location = new System.Drawing.Point(504, 374);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(86, 31);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -91,9 +102,10 @@ namespace PresentationLayer
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDelete.Location = new System.Drawing.Point(341, 306);
+            this.btnDelete.Location = new System.Drawing.Point(1012, 374);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(86, 31);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -102,35 +114,36 @@ namespace PresentationLayer
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 82);
+            this.label1.Location = new System.Drawing.Point(78, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.Size = new System.Drawing.Size(49, 20);
             this.label1.TabIndex = 7;
             this.label1.Text = "Name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 137);
+            this.label2.Location = new System.Drawing.Point(78, 113);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 15);
+            this.label2.Size = new System.Drawing.Size(36, 20);
             this.label2.TabIndex = 8;
             this.label2.Text = "Age";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 189);
+            this.label3.Location = new System.Drawing.Point(78, 184);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 15);
+            this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 9;
             this.label3.Text = "Country";
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(612, 306);
+            this.btnExit.Location = new System.Drawing.Point(1012, 477);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.Size = new System.Drawing.Size(86, 31);
             this.btnExit.TabIndex = 10;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -138,16 +151,60 @@ namespace PresentationLayer
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(68, 101);
+            this.txtName.Location = new System.Drawing.Point(78, 69);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 23);
+            this.txtName.Size = new System.Drawing.Size(193, 27);
             this.txtName.TabIndex = 11;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(78, 278);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.listBox1.Size = new System.Drawing.Size(193, 184);
+            this.listBox1.TabIndex = 12;
+            // 
+            // lblMovies
+            // 
+            this.lblMovies.AutoSize = true;
+            this.lblMovies.Location = new System.Drawing.Point(78, 255);
+            this.lblMovies.Name = "lblMovies";
+            this.lblMovies.Size = new System.Drawing.Size(120, 20);
+            this.lblMovies.TabIndex = 13;
+            this.lblMovies.Text = "Favourite movies";
+            // 
+            // btnAddMovies
+            // 
+            this.btnAddMovies.Location = new System.Drawing.Point(290, 433);
+            this.btnAddMovies.Name = "btnAddMovies";
+            this.btnAddMovies.Size = new System.Drawing.Size(50, 29);
+            this.btnAddMovies.TabIndex = 14;
+            this.btnAddMovies.Text = "Add";
+            this.btnAddMovies.UseVisualStyleBackColor = true;
+            this.btnAddMovies.Click += new System.EventHandler(this.btnAddMovies_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(78, 478);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(60, 29);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1236, 541);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnAddMovies);
+            this.Controls.Add(this.lblMovies);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label3);
@@ -159,6 +216,8 @@ namespace PresentationLayer
             this.Controls.Add(this.dataGridViewUser);
             this.Controls.Add(this.numAge);
             this.Controls.Add(this.txtCountry);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "UserForm";
             this.Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)(this.numAge)).EndInit();
@@ -180,5 +239,9 @@ namespace PresentationLayer
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lblMovies;
+        private System.Windows.Forms.Button btnAddMovies;
+        private System.Windows.Forms.Button btnClear;
     }
 }

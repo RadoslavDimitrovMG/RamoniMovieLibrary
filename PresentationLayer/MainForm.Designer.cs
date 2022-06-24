@@ -56,6 +56,7 @@ namespace PresentationLayer
             this.btnMovie.TabIndex = 2;
             this.btnMovie.Text = "Movie";
             this.btnMovie.UseVisualStyleBackColor = true;
+            this.btnMovie.Click += new System.EventHandler(this.btnMovie_Click);
             // 
             // btnUser
             // 

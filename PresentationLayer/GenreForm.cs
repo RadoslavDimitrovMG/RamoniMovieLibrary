@@ -121,16 +121,12 @@ namespace PresentationLayer
 
         private void dataGridViewGenre_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*DataGridViewRow row = dataGridViewGenre.Rows[e.RowIndex];
-            selectedGenre = row.DataBoundItem as Genre;
-            txtName.Text = selectedGenre.Name;*/
-
             if (e.RowIndex != -1 && e.ColumnIndex != -1)
             {
                 int id = Convert.ToInt32(dataGridViewGenre.Rows[e.RowIndex].Cells[0].Value);
                 string name = dataGridViewGenre.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-                selectedGenre = genres.First(g => g.ID == id);
+                selectedGenre = genres.Find(g => g.ID == id);
 
                 txtName.Text = name;
 
@@ -176,6 +172,9 @@ namespace PresentationLayer
             }
 
             dataGridViewGenre.Rows.Add(row);
+            dataGridViewGenre.Refresh();
+
+            genres.Add(item);
         }
 
         private void UpdateRowRefresh()
@@ -187,6 +186,11 @@ namespace PresentationLayer
         private void DeleteRowRefresh()
         {
             dataGridViewGenre.Rows.RemoveAt(selectedRowIndex);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearData();
         }
     }
 }
